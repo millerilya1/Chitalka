@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/readerRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ink">
+
+    <LinearLayout
+        android:id="@+id/pagesRow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <com.chitalka.app.ui.reader.ZoomableImageView
+            android:id="@+id/pageImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name" />
+
+        <View
+            android:id="@+id/pageGutter"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#33F4EDE1"
+            android:visibility="gone" />
+
+        <com.chitalka.app.ui.reader.ZoomableImageView
+            android:id="@+id/pageImageRight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Верхняя панель: выход + заголовок + меню -->
+    <LinearLayout
+        android:id="@+id/topChrome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/bg_chrome_panel"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="6dp">
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_circle_btn"
+            android:contentDescription="@string/exit_reader"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_close"
+            android:tint="@color/paper" />
+
+        <TextView
+            android:id="@+id/chapterTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/paper"
+            android:textSize="13sp" />
+
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_circle_btn"
+            android:contentDescription="@string/reader_menu"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_menu"
+            android:tint="@color/paper" />
+    </LinearLayout>
+
+    <!-- Нижняя панель -->
+    <LinearLayout
+        android:id="@+id/chrome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_chrome_panel"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Режим: 1 страница | 2 страницы -->
+        <LinearLayout
+            android:id="@+id/modeRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/btnModeSingle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mode_selected"
+                android:gravity="center"
+                android:text="@string/mode_single"
+                android:textColor="@color/ink"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnModeDual"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mode_normal"
+                android:gravity="center"
+                android:text="@string/mode_dual"
+                android:textColor="@color/paper"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Управление -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/prevChapter"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_circle_btn"
+                android:contentDescription="@string/prev_chapter"
+                android:padding="10dp"
+                android:src="@drawable/ic_prev"
+                android:tint="@color/paper" />
+
+            <ImageButton
+                android:id="@+id/btnTheme"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_circle_btn"
+                android:contentDescription="@string/theme_toggle"
+                android:padding="10dp"
+                android:src="@drawable/ic_moon"
+                android:tint="@color/accent_soft" />
+
+            <ImageButton
+                android:id="@+id/bookmark"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_circle_btn"
+                android:contentDescription="@string/add_bookmark"
+                android:padding="10dp"
+                android:src="@drawable/ic_bookmark"
+                android:tint="@color/accent_soft" />
+
+            <TextView
+                android:id="@+id/pageIndicator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/paper_muted"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:id="@+id/btnAuto"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/bg_circle_btn"
+                android:contentDescription="@string/auto_turn"
+                android:padding="10dp"
+                android:src="@drawable/ic_next"
+                android:tint="@color/paper" />
+
+            <ImageButton
+                android:id="@+id/nextChapter"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_circle_btn"
+                android:contentDescription="@string/next_chapter"
+                android:padding="10dp"
+                android:src="@drawable/ic_next"
+                android:tint="@color/paper" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

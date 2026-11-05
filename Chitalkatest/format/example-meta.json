@@ -1,0 +1,22 @@
+{
+  "id": "demo-one-piece-style",
+  "title": "Пример манги",
+  "author": "Автор",
+  "publishedAt": "2024-01-01",
+  "description": "Один ZIP-файл: обложка, манифест и страницы по главам.",
+  "cover": "cover.jpg",
+  "chapters": [
+    {
+      "id": "ch-001",
+      "index": 1,
+      "title": "Глава 1",
+      "path": "chapters/001"
+    },
+    {
+      "id": "ch-002",
+      "index": 2,
+      "title": "Глава 2",
+      "path": "chapters/002"
+    }
+  ]
+}
